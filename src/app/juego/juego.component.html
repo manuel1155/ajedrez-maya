@@ -1,0 +1,11 @@
+  <div class="container-fluid pb-3">
+    <div class="d-grid gap-3" style="grid-template-columns: 1fr 3fr;">
+      <div class="bg-body-tertiary border rounded-3" style="height: 80vh;">
+        <app-turno-piezas [casilla]="casilla_seleccionada"></app-turno-piezas>
+      </div>
+      <div class="bg-body-tertiary border rounded-3" style="height: 80vh; overflow-y: auto;">
+      <!-- <div class="bg-body-tertiary border rounded-3" style="height: 80vh; overflow-y: auto;"> -->
+        <app-tablero (casillaSeleccionada)="getData($event)"></app-tablero>
+      </div>
+    </div>
+  </div>

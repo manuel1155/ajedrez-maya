@@ -1,0 +1,27 @@
+.tablero {
+    position: relative;
+    height: auto;
+    min-height: 100% !important;
+}
+
+.pieza-svg {
+    width: 10vw;
+    height: 10vw;
+}
+
+.c-norte {
+    fill: rgb(185, 155, 56);
+}
+
+.c-sur {
+    fill: rgb(92, 63, 2);
+}
+
+.c-viable{
+    fill: rgb(250, 0, 0);
+}
+
+.svg_tab{
+    margin: 5px;
+    height: 78vh;
+}
