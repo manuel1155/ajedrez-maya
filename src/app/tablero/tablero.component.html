@@ -1,170 +1,172 @@
 <div class="container">
 
     <div class="Tablero">
-        <svg (click)="postData($event)" class="svg_tab" viewBox="0 0 800 1600">
+        <svg (click)="postData($event)" class="svg_tab" viewBox="0 0 880 1600">
 
-            <polygon id='c-P1' class='c-norte' points='350 100, 400 0, 450 100' />
+            <polygon id='c-P01' class='c-norte' points='385 95, 440 0, 495 95' />
 
-            <polygon id='c-O01' class='c-norte' points='300 200, 350 100, 400 200' />
-            <polygon id='c-O02' class='c-sur' points='350 100, 400 200, 450 100' />
-            <polygon id='c-O03' class='c-norte' points='400 200, 450 100, 500 200' />
+            <polygon id='c-O01' class='c-norte' points='330 190, 385 95, 440 190' />
+            <polygon id='c-O02' class='c-sur' points='385 95, 440 190, 495 95' />
+            <polygon id='c-O03' class='c-norte' points='440 190, 495 95, 550 190' />
 
-            <polygon id='c-N01' class='c-norte' points='250 300, 300 200, 350 300' />
-            <polygon id='c-N02' class='c-sur' points='300 200, 350 300, 400 200' />
-            <polygon id='c-N03' class='c-norte' points='350 300, 400 200, 450 300' />
-            <polygon id='c-N04' class='c-sur' points='400 200, 450 300, 500 200' />
-            <polygon id='c-N05' class='c-norte' points='450 300, 500 200, 550 300' />
+            <polygon id='c-N01' class='c-norte' points='275 285, 330 190, 385 285' />
+            <polygon id='c-N02' class='c-sur' points='330 190, 385 285, 440 190' />
+            <polygon id='c-N03' class='c-norte' points='385 285, 440 190, 495 285' />
+            <polygon id='c-N04' class='c-sur' points='440 190, 495 285, 550 190' />
+            <polygon id='c-N05' class='c-norte' points='495 285, 550 190, 605 285' />
 
-            <polygon id='c-M01' class='c-norte' points='200 400, 250 300, 300 400' />
-            <polygon id='c-M02' class='c-sur' points='250 300, 300 400, 350 300' />
-            <polygon id='c-M03' class='c-norte' points='300 400, 350 300, 400 400' />
-            <polygon id='c-M04' class='c-sur' points='350 300, 400 400, 450 300' />
-            <polygon id='c-M05' class='c-norte' points='400 400, 450 300, 500 400' />
-            <polygon id='c-M06' class='c-sur' points='450 300, 500 400, 550 300' />
-            <polygon id='c-M07' class='c-norte' points='500 400, 550 300, 600 400' />
+            <rect width="333" height="15" x="273" y="285" class="limite" />
 
-            <line x1="250" y1="300" x2="550" y2="300" style="stroke:rgb(20, 20, 20);stroke-width:10" />
+            <polygon id='c-M01' class='c-norte' points='220 395, 275 300, 330 395' />
+            <polygon id='c-M02' class='c-sur' points='275 300, 330 395, 385 300' />
+            <polygon id='c-M03' class='c-norte' points='330 395, 385 300, 440 395' />
+            <polygon id='c-M04' class='c-sur' points='385 300, 440 395, 495 300' />
+            <polygon id='c-M05' class='c-norte' points='440 395, 495 300, 550 395' />
+            <polygon id='c-M06' class='c-sur' points='495 300, 550 395, 605 300' />
+            <polygon id='c-M07' class='c-norte' points='550 395, 605 300, 660 395' />
 
-            <polygon id='c-L01' class='c-norte' points='150 500, 200 400, 250 500' />
-            <polygon id='c-L02' class='c-sur' points='200 400, 250 500, 300 400' />
-            <polygon id='c-L03' class='c-norte' points='250 500, 300 400, 350 500' />
-            <polygon id='c-L04' class='c-sur' points='300 400, 350 500, 400 400' />
-            <polygon id='c-L05' class='c-norte' points='350 500, 400 400, 450 500' />
-            <polygon id='c-L06' class='c-sur' points='400 400, 450 500, 500 400' />
-            <polygon id='c-L07' class='c-norte' points='450 500, 500 400, 550 500' />
-            <polygon id='c-L08' class='c-sur' points='500 400, 550 500, 600 400' />
-            <polygon id='c-L09' class='c-norte' points='550 500, 600 400, 650 500' />
+            <polygon id='c-L01' class='c-norte' points='165 490, 220 395, 275 490' />
+            <polygon id='c-L02' class='c-sur' points='220 395, 275 490, 330 395' />
+            <polygon id='c-L03' class='c-norte' points='275 490, 330 395, 385 490' />
+            <polygon id='c-L04' class='c-sur' points='330 395, 385 490, 440 395' />
+            <polygon id='c-L05' class='c-norte' points='385 490, 440 395, 495 490' />
+            <polygon id='c-L06' class='c-sur' points='440 395, 495 490, 550 395' />
+            <polygon id='c-L07' class='c-norte' points='495 490, 550 395, 605 490' />
+            <polygon id='c-L08' class='c-sur' points='550 395, 605 490, 660 395' />
+            <polygon id='c-L09' class='c-norte' points='605 490, 660 395, 715 490' />
 
-            <polygon id='c-K01' class='c-norte' points='100 600, 150 500, 200 600' />
-            <polygon id='c-K02' class='c-sur' points='150 500, 200 600, 250 500' />
-            <polygon id='c-K03' class='c-norte' points='200 600, 250 500, 300 600' />
-            <polygon id='c-K04' class='c-sur' points='250 500, 300 600, 350 500' />
-            <polygon id='c-K05' class='c-norte' points='300 600, 350 500, 400 600' />
-            <polygon id='c-K06' class='c-sur' points='350 500, 400 600, 450 500' />
-            <polygon id='c-K07' class='c-norte' points='400 600, 450 500, 500 600' />
-            <polygon id='c-K08' class='c-sur' points='450 500, 500 600, 550 500' />
-            <polygon id='c-K09' class='c-norte' points='500 600, 550 500, 600 600' />
-            <polygon id='c-K10' class='c-sur' points='550 500, 600 600, 650 500' />
-            <polygon id='c-K11' class='c-norte' points='600 600, 650 500, 700 600' />
+            <polygon id='c-K01' class='c-norte' points='110 585, 165 490, 220 585' />
+            <polygon id='c-K02' class='c-sur' points='165 490, 220 585, 275 490' />
+            <polygon id='c-K03' class='c-norte' points='220 585, 275 490, 330 585' />
+            <polygon id='c-K04' class='c-sur' points='275 490, 330 585, 385 490' />
+            <polygon id='c-K05' class='c-norte' points='330 585, 385 490, 440 585' />
+            <polygon id='c-K06' class='c-sur' points='385 490, 440 585, 495 490' />
+            <polygon id='c-K07' class='c-norte' points='440 585, 495 490, 550 585' />
+            <polygon id='c-K08' class='c-sur' points='495 490, 550 585, 605 490' />
+            <polygon id='c-K09' class='c-norte' points='550 585, 605 490, 660 585' />
+            <polygon id='c-K10' class='c-sur' points='605 490, 660 585, 715 490' />
+            <polygon id='c-K11' class='c-norte' points='660 585, 715 490, 770 585' />
 
+            <polygon id='c-J01' class='c-norte' points='55 680, 110 585, 165 680' />
+            <polygon id='c-J02' class='c-sur' points='110 585, 165 680, 220 585' />
+            <polygon id='c-J03' class='c-norte' points='165 680, 220 585, 275 680' />
+            <polygon id='c-J04' class='c-sur' points='220 585, 275 680, 330 585' />
+            <polygon id='c-J05' class='c-norte' points='275 680, 330 585, 385 680' />
+            <polygon id='c-J06' class='c-sur' points='330 585, 385 680, 440 585' />
+            <polygon id='c-J07' class='c-norte' points='385 680, 440 585, 495 680' />
+            <polygon id='c-J08' class='c-sur' points='440 585, 495 680, 550 585' />
+            <polygon id='c-J09' class='c-norte' points='495 680, 550 585, 605 680' />
+            <polygon id='c-J10' class='c-sur' points='550 585, 605 680, 660 585' />
+            <polygon id='c-J11' class='c-norte' points='605 680, 660 585, 715 680' />
+            <polygon id='c-J12' class='c-sur' points='660 585, 715 680, 770 585' />
+            <polygon id='c-J13' class='c-norte' points='715 680, 770 585, 825 680' />
 
-            <polygon id='c-J01' class='c-norte' points='50 700, 100 600, 150 700' />
-            <polygon id='c-J02' class='c-sur' points='100 600, 150 700, 200 600' />
-            <polygon id='c-J03' class='c-norte' points='150 700, 200 600, 250 700' />
-            <polygon id='c-J04' class='c-sur' points='200 600, 250 700, 300 600' />
-            <polygon id='c-J05' class='c-norte' points='250 700, 300 600, 350 700' />
-            <polygon id='c-J06' class='c-sur' points='300 600, 350 700, 400 600' />
-            <polygon id='c-J07' class='c-norte' points='350 700, 400 600, 450 700' />
-            <polygon id='c-J08' class='c-sur' points='400 600, 450 700, 500 600' />
-            <polygon id='c-J09' class='c-norte' points='450 700, 500 600, 550 700' />
-            <polygon id='c-J10' class='c-sur' points='500 600, 550 700, 600 600' />
-            <polygon id='c-J11' class='c-norte' points='550 700, 600 600, 650 700' />
-            <polygon id='c-J12' class='c-sur' points='600 600, 650 700, 700 600' />
-            <polygon id='c-J13' class='c-norte' points='650 700, 700 600, 750 700' />
+            <polygon id='c-I01' class='c-norte' points='0 775, 55 680, 110 775' />
+            <polygon id='c-I02' class='c-sur' points='55 680, 110 775, 165 680' />
+            <polygon id='c-I03' class='c-norte' points='110 775, 165 680, 220 775' />
+            <polygon id='c-I04' class='c-sur' points='165 680, 220 775, 275 680' />
+            <polygon id='c-I05' class='c-norte' points='220 775, 275 680, 330 775' />
+            <polygon id='c-I06' class='c-sur' points='275 680, 330 775, 385 680' />
+            <polygon id='c-I07' class='c-norte' points='330 775, 385 680, 440 775' />
+            <polygon id='c-I08' class='c-sur' points='385 680, 440 775, 495 680' />
+            <polygon id='c-I09' class='c-norte' points='440 775, 495 680, 550 775' />
+            <polygon id='c-I10' class='c-sur' points='495 680, 550 775, 605 680' />
+            <polygon id='c-I11' class='c-norte' points='550 775, 605 680, 660 775' />
+            <polygon id='c-I12' class='c-sur' points='605 680, 660 775, 715 680' />
+            <polygon id='c-I13' class='c-norte' points='660 775, 715 680, 770 775' />
+            <polygon id='c-I14' class='c-sur' points='715 680, 770 775, 825 680' />
+            <polygon id='c-I15' class='c-norte' points='770 775, 825 680, 880 775' />
 
+            <polygon id='c-H01' class='c-sur' points='0 775, 55 870, 110 775' />
+            <polygon id='c-H02' class='c-norte' points='55 870, 110 775, 165 870' />
+            <polygon id='c-H03' class='c-sur' points='110 775, 165 870, 220 775' />
+            <polygon id='c-H04' class='c-norte' points='165 870, 220 775, 275 870' />
+            <polygon id='c-H05' class='c-sur' points='220 775, 275 870, 330 775' />
+            <polygon id='c-H06' class='c-norte' points='275 870, 330 775, 385 870' />
+            <polygon id='c-H07' class='c-sur' points='330 775, 385 870, 440 775' />
+            <polygon id='c-H08' class='c-norte' points='385 870, 440 775, 495 870' />
+            <polygon id='c-H09' class='c-sur' points='440 775, 495 870, 550 775' />
+            <polygon id='c-H10' class='c-norte' points='495 870, 550 775, 605 870' />
+            <polygon id='c-H11' class='c-sur' points='550 775, 605 870, 660 775' />
+            <polygon id='c-H12' class='c-norte' points='605 870, 660 775, 715 870' />
+            <polygon id='c-H13' class='c-sur' points='660 775, 715 870, 770 775' />
+            <polygon id='c-H14' class='c-norte' points='715 870, 770 775, 825 870' />
+            <polygon id='c-H15' class='c-sur' points='770 775, 825 870, 880 775' />
 
-            <polygon id='c-I01' class='c-norte' points='0 800, 50 700, 100 800' />
-            <polygon id='c-I02' class='c-sur' points='50 700, 100 800, 150 700' />
-            <polygon id='c-I03' class='c-norte' points='100 800, 150 700, 200 800' />
-            <polygon id='c-I04' class='c-sur' points='150 700, 200 800, 250 700' />
-            <polygon id='c-I05' class='c-norte' points='200 800, 250 700, 300 800' />
-            <polygon id='c-I06' class='c-sur' points='250 700, 300 800, 350 700' />
-            <polygon id='c-I07' class='c-norte' points='300 800, 350 700, 400 800' />
-            <polygon id='c-I08' class='c-sur' points='350 700, 400 800, 450 700' />
-            <polygon id='c-I09' class='c-norte' points='400 800, 450 700, 500 800' />
-            <polygon id='c-I10' class='c-sur' points='450 700, 500 800, 550 700' />
-            <polygon id='c-I11' class='c-norte' points='500 800, 550 700, 600 800' />
-            <polygon id='c-I12' class='c-sur' points='550 700, 600 800, 650 700' />
-            <polygon id='c-I13' class='c-norte' points='600 800, 650 700, 700 800' />
-            <polygon id='c-I14' class='c-sur' points='650 700, 700 800, 750 700' />
-            <polygon id='c-I15' class='c-norte' points='700 800, 750 700, 800 800' />
+            <polygon id='c-G01' class='c-sur' points='55 870, 110 965, 165 870' />
+            <polygon id='c-G02' class='c-norte' points='110 965, 165 870, 220 965' />
+            <polygon id='c-G03' class='c-sur' points='165 870, 220 965, 275 870' />
+            <polygon id='c-G04' class='c-norte' points='220 965, 275 870, 330 965' />
+            <polygon id='c-G05' class='c-sur' points='275 870, 330 965, 385 870' />
+            <polygon id='c-G06' class='c-norte' points='330 965, 385 870, 440 965' />
+            <polygon id='c-G07' class='c-sur' points='385 870, 440 965, 495 870' />
+            <polygon id='c-G08' class='c-norte' points='440 965, 495 870, 550 965' />
+            <polygon id='c-G09' class='c-sur' points='495 870, 550 965, 605 870' />
+            <polygon id='c-G10' class='c-norte' points='550 965, 605 870, 660 965' />
+            <polygon id='c-G11' class='c-sur' points='605 870, 660 965, 715 870' />
+            <polygon id='c-G12' class='c-norte' points='660 965, 715 870, 770 965' />
+            <polygon id='c-G13' class='c-sur' points='715 870, 770 965, 825 870' />
 
-            <polygon id='c-H01' class='c-sur' points='0 800, 50 900, 100 800' />
-            <polygon id='c-H02' class='c-norte' points='50 900, 100 800, 150 900' />
-            <polygon id='c-H03' class='c-sur' points='100 800, 150 900, 200 800' />
-            <polygon id='c-H04' class='c-norte' points='150 900, 200 800, 250 900' />
-            <polygon id='c-H05' class='c-sur' points='200 800, 250 900, 300 800' />
-            <polygon id='c-H06' class='c-norte' points='250 900, 300 800, 350 900' />
-            <polygon id='c-H07' class='c-sur' points='300 800, 350 900, 400 800' />
-            <polygon id='c-H08' class='c-norte' points='350 900, 400 800, 450 900' />
-            <polygon id='c-H09' class='c-sur' points='400 800, 450 900, 500 800' />
-            <polygon id='c-H10' class='c-norte' points='450 900, 500 800, 550 900' />
-            <polygon id='c-H11' class='c-sur' points='500 800, 550 900, 600 800' />
-            <polygon id='c-H12' class='c-norte' points='550 900, 600 800, 650 900' />
-            <polygon id='c-H13' class='c-sur' points='600 800, 650 900, 700 800' />
-            <polygon id='c-H14' class='c-norte' points='650 900, 700 800, 750 900' />
-            <polygon id='c-H15' class='c-sur' points='700 800, 750 900, 800 800' />
+            <polygon id='c-F01' class='c-sur' points='110 965, 165 1060, 220 965' />
+            <polygon id='c-F02' class='c-norte' points='165 1060, 220 965, 275 1060' />
+            <polygon id='c-F03' class='c-sur' points='220 965, 275 1060, 330 965' />
+            <polygon id='c-F04' class='c-norte' points='275 1060, 330 965, 385 1060' />
+            <polygon id='c-F05' class='c-sur' points='330 965, 385 1060, 440 965' />
+            <polygon id='c-F06' class='c-norte' points='385 1060, 440 965, 495 1060' />
+            <polygon id='c-F07' class='c-sur' points='440 965, 495 1060, 550 965' />
+            <polygon id='c-F08' class='c-norte' points='495 1060, 550 965, 605 1060' />
+            <polygon id='c-F09' class='c-sur' points='550 965, 605 1060, 660 965' />
+            <polygon id='c-F10' class='c-norte' points='605 1060, 660 965, 715 1060' />
+            <polygon id='c-F11' class='c-sur' points='660 965, 715 1060, 770 965' />
 
-            <polygon id='c-G01' class='c-sur' points='50 900, 100 1000, 150 900' />
-            <polygon id='c-G02' class='c-norte' points='100 1000, 150 900, 200 1000' />
-            <polygon id='c-G03' class='c-sur' points='150 900, 200 1000, 250 900' />
-            <polygon id='c-G04' class='c-norte' points='200 1000, 250 900, 300 1000' />
-            <polygon id='c-G05' class='c-sur' points='250 900, 300 1000, 350 900' />
-            <polygon id='c-G06' class='c-norte' points='300 1000, 350 900, 400 1000' />
-            <polygon id='c-G07' class='c-sur' points='350 900, 400 1000, 450 900' />
-            <polygon id='c-G08' class='c-norte' points='400 1000, 450 900, 500 1000' />
-            <polygon id='c-G09' class='c-sur' points='450 900, 500 1000, 550 900' />
-            <polygon id='c-G10' class='c-norte' points='500 1000, 550 900, 600 1000' />
-            <polygon id='c-G11' class='c-sur' points='550 900, 600 1000, 650 900' />
-            <polygon id='c-G12' class='c-norte' points='600 1000, 650 900, 700 1000' />
-            <polygon id='c-G13' class='c-sur' points='650 900, 700 1000, 750 900' />
+            <polygon id='c-E01' class='c-sur' points='165 1060, 220 1155, 275 1060' />
+            <polygon id='c-E02' class='c-norte' points='220 1155, 275 1060, 330 1155' />
+            <polygon id='c-E03' class='c-sur' points='275 1060, 330 1155, 385 1060' />
+            <polygon id='c-E04' class='c-norte' points='330 1155, 385 1060, 440 1155' />
+            <polygon id='c-E05' class='c-sur' points='385 1060, 440 1155, 495 1060' />
+            <polygon id='c-E06' class='c-norte' points='440 1155, 495 1060, 550 1155' />
+            <polygon id='c-E07' class='c-sur' points='495 1060, 550 1155, 605 1060' />
+            <polygon id='c-E08' class='c-norte' points='550 1155, 605 1060, 660 1155' />
+            <polygon id='c-E09' class='c-sur' points='605 1060, 660 1155, 715 1060' />
 
-            <polygon id='c-F01' class='c-sur' points='100 1000, 150 1100, 200 1000' />
-            <polygon id='c-F02' class='c-norte' points='150 1100, 200 1000, 250 1100' />
-            <polygon id='c-F03' class='c-sur' points='200 1000, 250 1100, 300 1000' />
-            <polygon id='c-F04' class='c-norte' points='250 1100, 300 1000, 350 1100' />
-            <polygon id='c-F05' class='c-sur' points='300 1000, 350 1100, 400 1000' />
-            <polygon id='c-F06' class='c-norte' points='350 1100, 400 1000, 450 1100' />
-            <polygon id='c-F07' class='c-sur' points='400 1000, 450 1100, 500 1000' />
-            <polygon id='c-F08' class='c-norte' points='450 1100, 500 1000, 550 1100' />
-            <polygon id='c-F09' class='c-sur' points='500 1000, 550 1100, 600 1000' />
-            <polygon id='c-F10' class='c-norte' points='550 1100, 600 1000, 650 1100' />
-            <polygon id='c-F11' class='c-sur' points='600 1000, 650 1100, 700 1000' />
+            <polygon id='c-D01' class='c-sur' points='220 1155, 275 1250, 330 1155' />
+            <polygon id='c-D02' class='c-norte' points='275 1250, 330 1155, 385 1250' />
+            <polygon id='c-D03' class='c-sur' points='330 1155, 385 1250, 440 1155' />
+            <polygon id='c-D04' class='c-norte' points='385 1250, 440 1155, 495 1250' />
+            <polygon id='c-D05' class='c-sur' points='440 1155, 495 1250, 550 1155' />
+            <polygon id='c-D06' class='c-norte' points='495 1250, 550 1155, 605 1250' />
+            <polygon id='c-D07' class='c-sur' points='550 1155, 605 1250, 660 1155' />
 
-            <polygon id='c-E01' class='c-sur' points='150 1100, 200 1200, 250 1100' />
-            <polygon id='c-E02' class='c-norte' points='200 1200, 250 1100, 300 1200' />
-            <polygon id='c-E03' class='c-sur' points='250 1100, 300 1200, 350 1100' />
-            <polygon id='c-E04' class='c-norte' points='300 1200, 350 1100, 400 1200' />
-            <polygon id='c-E05' class='c-sur' points='350 1100, 400 1200, 450 1100' />
-            <polygon id='c-E06' class='c-norte' points='400 1200, 450 1100, 500 1200' />
-            <polygon id='c-E07' class='c-sur' points='450 1100, 500 1200, 550 1100' />
-            <polygon id='c-E08' class='c-norte' points='500 1200, 550 1100, 600 1200' />
-            <polygon id='c-E09' class='c-sur' points='550 1100, 600 1200, 650 1100' />
+            <rect width="333" height="15" x="273" y="1250" class="limite" />
 
-            <polygon id='c-D01' class='c-sur' points='200 1200, 250 1300, 300 1200' />
-            <polygon id='c-D02' class='c-norte' points='250 1300, 300 1200, 350 1300' />
-            <polygon id='c-D03' class='c-sur' points='300 1200, 350 1300, 400 1200' />
-            <polygon id='c-D04' class='c-norte' points='350 1300, 400 1200, 450 1300' />
-            <polygon id='c-D05' class='c-sur' points='400 1200, 450 1300, 500 1200' />
-            <polygon id='c-D06' class='c-norte' points='450 1300, 500 1200, 550 1300' />
-            <polygon id='c-D07' class='c-sur' points='500 1200, 550 1300, 600 1200' />
+            <polygon id='c-C01' class='c-sur' points='275 1265, 330 1360, 385 1265' />
+            <polygon id='c-C02' class='c-norte' points='330 1360, 385 1265, 440 1360' />
+            <polygon id='c-C03' class='c-sur' points='385 1265, 440 1360, 495 1265' />
+            <polygon id='c-C04' class='c-norte' points='440 1360, 495 1265, 550 1360' />
+            <polygon id='c-C05' class='c-sur' points='495 1265, 550 1360, 605 1265' />
 
+            <polygon id='c-B01' class='c-sur' points='330 1360, 385 1455, 440 1360' />
+            <polygon id='c-B02' class='c-norte' points='385 1455, 440 1360, 495 1455' />
+            <polygon id='c-B03' class='c-sur' points='440 1360, 495 1455, 550 1360' />
+
+            <polygon id='c-A01' class='c-sur' points='385 1455, 440 1550, 495 1455' />
+
+            <circle id='ts-P01' class="c-sur" cx="440" cy="62" r="25" />
+
+            <circle id='tl-J07' class="c-sur" cx="440" cy="647" r="25" />
+
+            <circle id='tl-G07' class="c-norte" cx="440" cy="901" r="25" />
+
+            <circle id='ts-A01' class="c-norte" cx="440" cy="1486" r="25" />
+
+            <image href="./assets/black_leader.png" id="p-l-b" [(attr.x)]="posicionesPiezas['p-l-b']['x']"  [(attr.y)]="posicionesPiezas['p-l-b']['y']" height="60" width="60" />
+            <image href="./assets/white_leader.png" id="p-l-w" [(attr.x)]="posicionesPiezas['p-l-w']['x']"  [(attr.y)]="posicionesPiezas['p-l-w']['y']" height="60" width="60" />
             
-
-            <polygon id='c-C01' class='c-sur' points='250 1300, 300 1400, 350 1300' />
-            <polygon id='c-C02' class='c-norte' points='300 1400, 350 1300, 400 1400' />
-            <polygon id='c-C03' class='c-sur' points='350 1300, 400 1400, 450 1300' />
-            <polygon id='c-C04' class='c-norte' points='400 1400, 450 1300, 500 1400' />
-            <polygon id='c-C05' class='c-sur' points='450 1300, 500 1400, 550 1300' />
-
-            <line x1="250" y1="1300" x2="550" y2="1300" style="stroke:rgb(20, 20, 20);stroke-width:10" />
-
-            <polygon id='c-B01' class='c-sur' points='300 1400, 350 1500, 400 1400' />
-            <polygon id='c-B02' class='c-norte' points='350 1500, 400 1400, 450 1500' />
-            <polygon id='c-B03' class='c-sur' points='400 1400, 450 1500, 500 1400' />
-
-            <polygon id='c-A01' class='c-sur' points='350 1500, 400 1600, 450 1500' />
-
-            <circle id='ts-P01' class="c-sur" cx="400" cy="67" r="25" />
-
-            <circle id='tl-J07' class="c-sur" cx="400" cy="667" r="25" />
-
-            <circle id='tl-G07' class="c-norte" cx="400" cy="932" r="25" />
-
-            <circle id='ts-A01' class="c-norte" cx="400" cy="1532" r="25" />
-
-            <image href="./assets/black_leader.png" id="p-l-b" x="420" y="1135" height="60" width="60" />
-            <image href="./assets/white_leader.png" id="p-l-w" x="120" y="1000" height="60" width="60" />
+            
+            
+            
+            <image href="./assets/black_capitan_n.png" id="p-l-b" x="440"  y="680" height="95 " width="110" />
+            <image href="./assets/black_capitan_s.png" id="p-l-w" x="55"  y="680" height="95" width="110" />
 
         </svg>
     </div>

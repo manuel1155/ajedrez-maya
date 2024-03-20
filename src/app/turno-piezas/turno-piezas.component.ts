@@ -1,29 +1,26 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { pieza } from '../core/models/pieza';
 
 @Component({
   selector: 'app-turno-piezas',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    NgFor
+  ],
   templateUrl: './turno-piezas.component.html',
   styleUrl: './turno-piezas.component.scss'
 })
 export class TurnoPiezasComponent implements OnInit {
 
-  @Input() casilla: string =""; 
+  @Input() casilla: string = ""
+  @Input() jugadores: any = []
 
-  LB: pieza;
-
-
-
-  constructor(){
-    this.LB=new pieza('l','w','c-A01')
+  constructor() {
   }
   ngOnInit(): void {
 
   }
 
-
-  
 
 }
