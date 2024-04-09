@@ -116,4 +116,61 @@ export class CoordenadasPosicionService {
 
     return casillasPosibles;
   }
+
+  public calculaCasillasDefensa(casillas?: string[], orientacionCasilla?: string, orientacionPieza?: string, caraPza?: string, turno?: number) {
+
+    let casillasPosibles = [];
+
+    if (!casillas) casillas = ['M02']
+    if (!orientacionCasilla) orientacionCasilla = 's'
+    if (!orientacionPieza) orientacionPieza = 's'
+    if (!caraPza) caraPza = 'A'
+
+    if (casillas.length == 1 && orientacionCasilla == 's' && orientacionPieza == 's') {
+      let casilla = casillas[0]
+      let fila = casilla.substring(0, 1)
+      let columna = +casilla.substring(1)
+
+      let dataFila = this.filas.filter(f => f.nombre == fila)[0];
+      let filaActual = fila
+      let columnaActual = columna
+
+      let filaAnterior = this.filas.filter(f => f.id == dataFila.id - 1)[0]
+
+      casillasPosibles.push(filaAnterior.nombre +  ((columnaActual - 1) <= 9 ? '0' + (columnaActual - 1) : (columnaActual - 1)))
+
+      for (let i = 0; i < 2; i++) {
+        if (i == 0) {
+          if (columna == 1) casillasPosibles.push(filaActual + (columnaActual + 1));
+          else if (columna == dataFila.limite) casillasPosibles.push(filaActual + ((columnaActual - 1) <= 9 ? '0' + (columnaActual - 1) : (columnaActual - 1)));
+
+          else if (columna > 1) {
+            casillasPosibles.push(filaActual +  ((columnaActual - 1) <= 9 ? '0' + (columnaActual - 1) : (columnaActual - 1)))
+            casillasPosibles.push(filaActual +  ((columnaActual + 1) <= 9 ? '0' + (columnaActual + 1) : (columnaActual + 1)))
+          }
+        } else if (i == 1) {
+          let dataFila2 = this.filas.filter(f => f.id == dataFila.id + 1)[0];
+          filaActual = dataFila2.nombre
+          columnaActual = columna + 1
+          if (columna == 1) {
+            casillasPosibles.push(filaActual + '01');
+            casillasPosibles.push(filaActual + '02');
+          }
+          else if (columna == dataFila.limite) {
+            casillasPosibles.push(filaActual + ((dataFila2.limite) <= 9 ? '0' + dataFila2.limite : dataFila2.limite));
+            casillasPosibles.push(filaActual + ((dataFila2.limite - 1) <= 9 ? '0' + (dataFila2.limite - 1) : (dataFila2.limite - 1)));
+          }
+          else if (columna > 1) {
+            casillasPosibles.push(filaActual + ((columnaActual + 1) <= 9 ? '0' + (columnaActual + 1) : (columnaActual + 1)))
+            casillasPosibles.push(filaActual + ((columnaActual + 2) <= 9 ? '0' + (columnaActual + 2) : (columnaActual + 2)))
+            casillasPosibles.push(filaActual +  ((columnaActual - 1) <= 9 ? '0' + (columnaActual - 1) : (columnaActual - 1)))
+            casillasPosibles.push(filaActual +  ((columnaActual - 2) <= 9 ? '0' + (columnaActual - 2) : (columnaActual - 2)))
+          }
+        }
+      }
+    } else if (casillas.length == 1 && orientacionCasilla == 'n' && orientacionPieza == 'n') {
+      console.log('no yet implemented')
+    }
+    return casillasPosibles;
+  }
 }

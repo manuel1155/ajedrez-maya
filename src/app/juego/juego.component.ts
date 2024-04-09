@@ -1,8 +1,8 @@
-import { AfterContentInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import { TurnoPiezasComponent } from '../turno-piezas/turno-piezas.component';
 import { TableroComponent } from '../tablero/tablero.component';
-import { Pieza } from '../core/models/Pieza';
 import { Jugador } from '../core/models/Jugador';
+import { Pieza } from '../core/models/pieza';
 
 @Component({
   selector: 'app-juego',

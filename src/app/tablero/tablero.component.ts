@@ -16,6 +16,7 @@ export class TableroComponent implements OnInit {
   @Input() colorTurno: string = 'w'
   @Input() casillasBloqueadas: string[] = [];
   ngOnInit(): void {
+
   }
 
   constructor(public cpService: CoordenadasPosicionService) {
@@ -24,7 +25,7 @@ export class TableroComponent implements OnInit {
 
   postData(e: any) {
     console.log(e.target.id)
-    if ((e.target.id == 'p-l-b' || e.target.id == 'p-l-w') && e.target.id.charAt(e.target.id.length - 1) == this.colorTurno) {
+    /* if ((e.target.id == 'p-l-b' || e.target.id == 'p-l-w') && e.target.id.charAt(e.target.id.length - 1) == this.colorTurno) {
       this.casillaSeleccionada.emit(e.target.id)
       this.resetTablero();
       const casillaPosicion = document.getElementById(this.posicionesPiezas[e.target.id]['casilla'])
@@ -36,11 +37,11 @@ export class TableroComponent implements OnInit {
         let casillasPosibles = this.cpService.calculaCasillasLider(this.posicionesPiezas[e.target.id]['casilla'].substring(2), orientacion, 0)
         console.log('casillas posibles: ' + casillasPosibles)
         console.log('casillas ocupadas: ' + this.casillasBloqueadas);
-        let editCasillasPosibles =[];
+        let editCasillasPosibles = [];
         for (let casilla of casillasPosibles) {
-          if (!this.casillasBloqueadas.includes(casilla)) editCasillasPosibles.push(casilla) 
+          if (!this.casillasBloqueadas.includes(casilla)) editCasillasPosibles.push(casilla)
         }
-        console.log('casillas posibles edit: ' + editCasillasPosibles);
+        console.log(editCasillasPosibles);
 
         for (let casilla of editCasillasPosibles) {
           const element = document.getElementById('c-' + casilla);
@@ -54,6 +55,21 @@ export class TableroComponent implements OnInit {
     else if (e.target.classList.contains('c-viable')) {
       this.casillaSeleccionada.emit(e.target.id)
       this.moverPza.emit(e.target.id);
+    } */
+    console.log(e.target.id.substring(2))
+    let data = this.cpService.calculaCasillasDefensa([e.target.id.substring(2)])
+    console.log(data)
+    this.pintarPosibles(data)
+  }
+
+  pintarPosibles(casillasPosibles: string[]) {
+    this.resetTablero();
+
+    for (let casilla of casillasPosibles) {
+      console.log('c-' + casilla)
+      const element = document.getElementById('c-' + casilla);
+      element?.classList.remove('c-viable');
+      element?.classList.add('c-viable');
     }
   }
 
