@@ -5,7 +5,7 @@ export class Jugador {
     public activo: boolean
     public turno: number
     public casillasGanar: string []
-    public casillasTurno: string []=[]
+    public movimientosTurno: Jugada [] = []
     public img: string
 
     constructor(id: number, nombre: string, color: string, activo: boolean, turno: number, casillasGanar: string[],img: string) {
@@ -26,12 +26,26 @@ export class Jugador {
         this.activo = activo
     }
 
-    public setCasillasTurno(casilla: string) {
-        this.casillasTurno.push(casilla)
+    public resetMovimientosTurno() {
+        this.movimientosTurno = []
     }
 
-    public resetCasillasTurno() {
-        this.casillasTurno = []
+    public AgregarMovimientoTurno(pzaId: string, casilla: string) {
+        this.movimientosTurno.push({ pzaId: pzaId, posicion: casilla})
+    }
+
+    public getMovimientosTurno(){
+        return this.movimientosTurno;
+    }
+
+    public getUltimoMovimiento() : Jugada{
+        if (this.movimientosTurno.length > 0) return this.movimientosTurno[ this.movimientosTurno.length - 1 ];
+        else return {pzaId: '', posicion: ''}
     }
 
 }
+
+export default interface Jugada {
+    pzaId: string;
+    posicion: string;
+  }

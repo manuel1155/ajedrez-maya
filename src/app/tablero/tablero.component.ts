@@ -1,10 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CoordenadasPosicionService } from '../core/service/coordenadas-posicion/coordenadas-posicion.service';
+import { PiezasService } from '../core/services/piezas.service';
+import { Pieza } from '../core/models/pieza';
+import { NgFor, NgIf } from '@angular/common';
+import Jugada, { Jugador } from '../core/models/Jugador';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-tablero',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    NgFor
+  ],
   templateUrl: './tablero.component.html',
   styleUrl: './tablero.component.scss'
 })
@@ -12,61 +19,120 @@ export class TableroComponent implements OnInit {
 
   @Output() casillaSeleccionada = new EventEmitter<string>();
   @Output() moverPza = new EventEmitter<string>();
-  @Input() posicionesPiezas: any = null;
-  @Input() colorTurno: string = 'w'
+  @Input() piezasJuego: any = null;
+  @Input() colorTurno: string = 'n'
   @Input() casillasBloqueadas: string[] = [];
+  @Input() jugadores: Jugador[] = [];
   ngOnInit(): void {
+
+    console.log(this.piezasJuego)
 
   }
 
-  constructor(public cpService: CoordenadasPosicionService) {
+  constructor(public pzasService: PiezasService) {
+
+  }
+
+  activarPieza(piezaSeleccionada: Pieza){
+    const sombras = document.getElementsByClassName('sombra');
+
+    for (let i = 0; i < sombras.length; i++) {
+      sombras[i].classList.remove('pza-inactiva')
+      sombras[i].classList.remove('pza-activa')
+      sombras[i].classList.add('pza-inactiva')
+    }
+
+    const sombraActiva = document.getElementById(piezaSeleccionada.id_html+'-a-s');
+
+    sombraActiva?.classList.remove('pza-inactiva')
+    sombraActiva?.classList.add('pza-activa')
+
+    this.piezasJuego.map((pza: Pieza) => {
+      let activo=false
+      if(pza.id_html === piezaSeleccionada.id_html) activo=true  
+      pza.activa = activo
+    })
 
   }
 
   postData(e: any) {
-    console.log(e.target.id)
-    /* if ((e.target.id == 'p-l-b' || e.target.id == 'p-l-w') && e.target.id.charAt(e.target.id.length - 1) == this.colorTurno) {
-      this.casillaSeleccionada.emit(e.target.id)
-      this.resetTablero();
-      const casillaPosicion = document.getElementById(this.posicionesPiezas[e.target.id]['casilla'])
+    this.casillaSeleccionada.emit(e.target.id)
+    let id_html = e.target.id
+    id_html = id_html.replace('-aux','')
+    console.log(id_html)
 
-      let clases = casillaPosicion?.classList
-      let orientacion = 'n'
-      if (clases) {
-        if (clases.contains('c-sur')) orientacion = 's'
-        let casillasPosibles = this.cpService.calculaCasillasLider(this.posicionesPiezas[e.target.id]['casilla'].substring(2), orientacion, 0)
-        console.log('casillas posibles: ' + casillasPosibles)
-        console.log('casillas ocupadas: ' + this.casillasBloqueadas);
-        let editCasillasPosibles = [];
-        for (let casilla of casillasPosibles) {
-          if (!this.casillasBloqueadas.includes(casilla)) editCasillasPosibles.push(casilla)
+    if(!(id_html.includes(this.colorTurno)) && id_html.includes('p-')){
+      let color = this.colorTurno == 'b' ? 'blancas' : 'negras'
+      Swal.fire({
+        title: 'Pieza inactiva',
+        text: 'Es turno de las piezas ' + color,
+        icon: 'info',
+        confirmButtonText: 'Ok'
+      }) }
+    
+
+    let pza: Pieza = this.piezasJuego.filter( (pza:any) => pza.id_html === id_html && pza.color == this.colorTurno)[0]
+    if(pza){
+      console.log('pza encontrada')
+      this.activarPieza(pza);
+
+      let opciones: any = this.pzasService.getOpcionesMovimiento(pza)
+
+      let dataViables:any = []
+
+      let ultimaJugada: Jugada = this.jugadores.filter( j=> j.activo)[0].getUltimoMovimiento();
+
+      if(ultimaJugada.pzaId == pza.id_pza && !(this.casillasBloqueadas.includes(ultimaJugada.posicion))){
+        if(ultimaJugada.posicion.length == 9){
+          this.casillasBloqueadas.push(ultimaJugada.posicion.substring(0,3))
+          this.casillasBloqueadas.push(ultimaJugada.posicion.substring(3,6))
+          this.casillasBloqueadas.push(ultimaJugada.posicion.substring(6))
+        }else if(ultimaJugada.posicion.length == 6){
+          this.casillasBloqueadas.push(ultimaJugada.posicion.substring(0,3))
+          this.casillasBloqueadas.push(ultimaJugada.posicion.substring(3))
         }
-        console.log(editCasillasPosibles);
-
-        for (let casilla of editCasillasPosibles) {
-          const element = document.getElementById('c-' + casilla);
-
-          element?.classList.remove('c-viable');
-          element?.classList.add('c-viable');
-        }
-
+        else this.casillasBloqueadas.push(ultimaJugada.posicion)
       }
-    }
-    else if (e.target.classList.contains('c-viable')) {
-      this.casillaSeleccionada.emit(e.target.id)
+
+      for (let opcion of opciones) {
+        if(opcion.posicion_destino.length == 9){
+          if(
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(0,3)) &&
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(3,6)) &&
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(6))){
+              dataViables.push(opcion.posicion_destino.substring(0,3))
+              dataViables.push(opcion.posicion_destino.substring(3,6))
+              dataViables.push(opcion.posicion_destino.substring(6))
+          }
+        }
+        if(opcion.posicion_destino.length == 6){
+          if(
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(0,3)) &&
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(3,6)) &&
+            !this.casillasBloqueadas.includes(opcion.posicion_destino.substring(6))){
+              dataViables.push(opcion.posicion_destino.substring(0,3))
+              dataViables.push(opcion.posicion_destino.substring(3))
+          }
+        }
+        else if(opcion.posicion_destino.length == 3)
+          if (!this.casillasBloqueadas.includes(opcion.posicion_destino)) dataViables.push(opcion.posicion_destino)
+      }
+
+      pza.setOpcionesMov(opciones);
+      this.pintarPosibles(dataViables)
+
+    }else if(e.target.classList.contains('c-viable')){
+      console.log('Soy casilla posible');
       this.moverPza.emit(e.target.id);
-    } */
-    console.log(e.target.id.substring(2))
-    let data = this.cpService.calculaCasillasDefensa([e.target.id.substring(2)])
-    console.log(data)
-    this.pintarPosibles(data)
+    }else{
+      console.log('pza NO encontrada ni casilla posible')
+    }
   }
 
   pintarPosibles(casillasPosibles: string[]) {
     this.resetTablero();
 
     for (let casilla of casillasPosibles) {
-      console.log('c-' + casilla)
       const element = document.getElementById('c-' + casilla);
       element?.classList.remove('c-viable');
       element?.classList.add('c-viable');

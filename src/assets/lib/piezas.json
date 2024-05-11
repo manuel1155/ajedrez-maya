@@ -1,0 +1,32 @@
+[
+  {
+    "id": "L",
+    "nombre": "Lider",
+    "f_creado": "2024-05-30",
+    "activo": true
+  },
+  {
+    "id": "C",
+    "nombre": "Capitan",
+    "f_creado": "2024-05-30",
+    "activo": true
+  },
+  {
+    "id": "G",
+    "nombre": "Guardián",
+    "f_creado": "2024-05-30",
+    "activo": true
+  },
+  {
+    "id": "A",
+    "nombre": "Ataque",
+    "f_creado": "2024-05-30",
+    "activo": false
+  },
+  {
+    "id": "D",
+    "nombre": "Defensa",
+    "f_creado": "2024-05-30",
+    "activo": true
+  }
+]

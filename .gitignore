@@ -41,3 +41,12 @@ testem.log
 .DS_Store
 Thumbs.db
 package-lock.json
+
+/Documentación
+/.firebase
+/.angular
+package-lock.json
+.firebaserc
+/.vscode
+firebase.json
+package-lock.json

@@ -1,42 +1,52 @@
-import * as coordenadas_lider from './../../../assets/lib/coordenadas-lider-casilla.json'
+import { PiezasService } from '../services/piezas.service'
+
+interface Coordenadas {
+    x: number
+    y: number
+}
 
 export class Pieza {
     public nombre: string
     public color: string
+    public id_pza: string
+    public id_html: string
+    
+    public base: string
+    public orientacion: string
     public posicion: any
+    public coordenadas: Coordenadas = { x: 0, y: 0}
+
+    public opcionesMov: OpcionesMov[] = []
+
     public imagen: string
-    public id: string
-    private coordenadas: any[] = []
-    private orientacionPza: string = '';
+
     public activa = false;
 
     constructor(id: string, nombre: string, color: string,imagen?: string) {
         this.nombre = nombre
         this.color = color
-        this.id = id
+        this.id_pza = id
+        this.id_html = 'p-'+id.toLowerCase()+'-'+color;
 
-        this.posicion = [-100, -100]
+        let pzaService = new PiezasService()
 
-        if (id == 'p-l-b' || id == 'p-l-w') this.coordenadas = coordenadas_lider.coordenadas_leader
+        let infoPosition = pzaService.getPosicionInicial(this.id_pza,color)
 
-        this.posicion = this.getInitialPosition();
-        this.imagen = imagen != null ? imagen:'';
+        this.base = infoPosition.base
+        this.orientacion = infoPosition.orientacion
+        this.posicion = infoPosition.posicion
 
-        console.log(this)
+        this.coordenadas.x = infoPosition.x
+        this.coordenadas.y = infoPosition.y
+
+        let nombrePieza = this.nombre.toLowerCase()
+        if(this.nombre == 'Guardián') nombrePieza = 'guardian'
+
+        this.imagen = './assets/'+nombrePieza+'/'+ this.color+'_'+nombrePieza+'_'+this.base+'_'+this.orientacion+'.png';
+
+        this.opcionesMov=[]
     }
 
-    getInitialPosition() {
-        let infoPosition = this.coordenadas.filter(c => c.inicial == this.id)[0]
-        return infoPosition
-    }
-
-    getImagen() {
-        /* let imagenName = ''
-        console.log(this.orientacionPza);
-        if (this.orientacionPza == '') imagenName = coordenadas_lider.imagenes.filter(img => img.id == '' + this.posicion.pieza + '-' + this.posicion.orientacion)[0].img
-        else imagenName = coordenadas_lider.imagenes.filter(img => img.id == '' + this.posicion.pieza + '-' + this.posicion.orientacion+'-'+this.orientacionPza)[0].img
-        return imagenName */
-    }
 
     get _name(): string {
         return this.nombre;
@@ -47,6 +57,48 @@ export class Pieza {
     }
 
     setPosicionPza(casilla:string) {
-        this.posicion = this.coordenadas.filter(c => c.casilla == casilla)[0]
+        return new Promise((resolve, reject) => {
+            let posicionOrigen = this.posicion;
+            let opcion = this.opcionesMov.filter(o => o.posicion_destino.includes(casilla))[0]
+            
+            if(opcion) {
+                this.posicion = opcion.posicion_destino
+                this.base = opcion.base_destino
+                this.orientacion = opcion.orientacion_destino
+            }
+
+            let pzaService = new PiezasService()
+            let infoPosition = pzaService.getInfoPosicion(this.id_pza, this.posicion, this.base, this.orientacion)
+
+            this.coordenadas.x = infoPosition.x
+            this.coordenadas.y = infoPosition.y
+
+            let nombrePieza = this.nombre.toLowerCase()
+            if(this.nombre == 'Guardián') nombrePieza = 'guardian'
+
+            this.imagen = './assets/'+nombrePieza+'/'+ this.color+'_'+nombrePieza+'_'+this.base+'_'+this.orientacion+'.png'
+            this.activa = false
+            
+            resolve({status: true, data: { casilla: posicionOrigen }});
+        })
+          
     }
+
+    setOpcionesMov(opciones: []){
+        this.opcionesMov = opciones;
+    }
+
+
+}
+
+export default interface OpcionesMov {
+    id_pza : string
+    id_origen : string
+    posicion_origen :string
+    base_origen : string
+    orientacion_origen : string
+    id_destino : string
+    posicion_destino : string
+    base_destino : string
+    orientacion_destino : string
 }
