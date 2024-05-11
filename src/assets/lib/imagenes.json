@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "id_pza": "D",
+    "nombre": "defensa_tn_n",
+    "base": "tn",
+    "orientacion": "n",
+    "alto": 170,
+    "ancho": 160
+  },
+  {
+    "id": 2,
+    "id_pza": "D",
+    "nombre": "defensa_tn_e",
+    "base": "tn",
+    "orientacion": "e",
+    "alto": 160,
+    "ancho": 160
+  },
+  {
+    "id": 3,
+    "id_pza": "D",
+    "nombre": "defensa_tn_w",
+    "base": "tn",
+    "orientacion": "w",
+    "alto": 160,
+    "ancho": 160
+  },
+  {
+    "id": 4,
+    "id_pza": "D",
+    "nombre": "defensa_ts_s",
+    "base": "ts",
+    "orientacion": "s",
+    "alto": 170,
+    "ancho": 160
+  },
+  {
+    "id": 5,
+    "id_pza": "D",
+    "nombre": "defensa_ts_e",
+    "base": "ts",
+    "orientacion": "e",
+    "alto": 160,
+    "ancho": 160
+  },
+  {
+    "id": 6,
+    "id_pza": "D",
+    "nombre": "defensa_ts_w",
+    "base": "ts",
+    "orientacion": "w",
+    "alto": 160,
+    "ancho": 160
+  },
+  {
+    "id": 7,
+    "id_pza": "D",
+    "nombre": "defensa_tr_n",
+    "base": "tr",
+    "orientacion": "n",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 8,
+    "id_pza": "D",
+    "nombre": "defensa_tr_ne",
+    "base": "tr",
+    "orientacion": "ne",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 9,
+    "id_pza": "D",
+    "nombre": "defensa_tr_nw",
+    "base": "tr",
+    "orientacion": "nw",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 10,
+    "id_pza": "D",
+    "nombre": "defensa_tr_s",
+    "base": "tr",
+    "orientacion": "s",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 11,
+    "id_pza": "D",
+    "nombre": "defensa_tr_se",
+    "base": "tr",
+    "orientacion": "se",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 12,
+    "id_pza": "D",
+    "nombre": "defensa_tr_sw",
+    "base": "tr",
+    "orientacion": "sw",
+    "alto": 215,
+    "ancho": 223
+  },
+  {
+    "id": 13,
+    "id_pza": "L",
+    "nombre": "lider_t_n",
+    "base": "t",
+    "orientacion": "n",
+    "alto": 60,
+    "ancho": 60
+  },
+  {
+    "id": 14,
+    "id_pza": "L",
+    "nombre": "lider_t_s",
+    "base": "t",
+    "orientacion": "s",
+    "alto": 60,
+    "ancho": 60
+  },
+  {
+    "id": 15,
+    "id_pza": "C",
+    "nombre": "capitan_t_n",
+    "base": "t",
+    "orientacion": "n",
+    "alto": 95,
+    "ancho": 110
+  },
+  {
+    "id": 16,
+    "id_pza": "C",
+    "nombre": "capitan_t_s",
+    "base": "t",
+    "orientacion": "s",
+    "alto": 95,
+    "ancho": 110
+  },
+  {
+    "id": 17,
+    "id_pza": "G",
+    "nombre": "guardian_t_n",
+    "base": "t",
+    "orientacion": "n",
+    "alto": 125,
+    "ancho": 110
+  },
+  {
+    "id": 18,
+    "id_pza": "G",
+    "nombre": "guardian_t_s",
+    "base": "t",
+    "orientacion": "s",
+    "alto": 125,
+    "ancho": 110
+  }
+]

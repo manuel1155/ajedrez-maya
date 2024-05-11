@@ -19,6 +19,7 @@
 
 .c-viable{
     fill: rgb(250, 0, 0);
+    z-index: 100;
 }
 
 .svg_tab{
@@ -27,5 +28,13 @@
 }
 
 .limite {
-    fill:rgb(185, 155, 56);;stroke-width:3;stroke:rgb(92, 63, 2)
+    fill:rgb(185, 155, 56); stroke-width:3;stroke:rgb(92, 63, 2)
+}
+
+.pza-activa{
+    fill:rgb(2, 148, 87);
+}
+
+.pza-inactiva{
+    display: none;
 }

@@ -1,7 +1,9 @@
 <div class="container">
 
     <div class="Tablero">
-        <svg (click)="postData($event)" class="svg_tab" viewBox="0 0 880 1600">
+        <svg (click)="postData($event)" class="svg_tab" viewBox="-80 -60 1000 1690">
+
+            
 
             <polygon id='c-P01' class='c-norte' points='385 95, 440 0, 495 95' />
 
@@ -159,15 +161,55 @@
 
             <circle id='ts-A01' class="c-norte" cx="440" cy="1486" r="25" />
 
-            <image href="./assets/black_leader.png" id="p-l-b" [(attr.x)]="posicionesPiezas['p-l-b']['x']"  [(attr.y)]="posicionesPiezas['p-l-b']['y']" height="60" width="60" />
-            <image href="./assets/white_leader.png" id="p-l-w" [(attr.x)]="posicionesPiezas['p-l-w']['x']"  [(attr.y)]="posicionesPiezas['p-l-w']['y']" height="60" width="60" />
+            <!-- <image href="./assets/black_leader.png" id="p-l-b" [(attr.x)]="posicionesPiezas['p-l-b']['x']"  [(attr.y)]="posicionesPiezas['p-l-b']['y']" height="60" width="60" />
+            <image href="./assets/white_leader.png" id="p-l-w" [(attr.x)]="posicionesPiezas['p-l-w']['x']"  [(attr.y)]="posicionesPiezas['p-l-w']['y']" height="60" width="60" /> -->
             
+            @for (pza of piezasJuego; track pza.id){
+                <image [(attr.href)]="pza.imagen" [(attr.id)]="pza.id_html" [(attr.x)]="pza.coordenadas.x"  [(attr.y)]="pza.coordenadas.y"/>  
+            }
+             
+             
+                
             
-            
-            
-            <image href="./assets/black_capitan_n.png" id="p-l-b" x="440"  y="680" height="95 " width="110" />
-            <image href="./assets/black_capitan_s.png" id="p-l-w" x="55"  y="680" height="95" width="110" />
+            <rect width="88" height="90" x="0" y="45" class="pza-inactiva sombra" id="p-l-n-a-s" rx="10"/>
+            <text x="2" y="25" class="small" style="font-size:xx-large; font-weight: bold;">Lider</text>
+            <image href="./assets/lider/n_lider_t_n.png" id="p-l-n-aux" x="3"  y="50" height="80" width="80" />
 
+            <rect width="132" height="200" x="86" y="45" class="pza-inactiva sombra" id="p-d-n-a-s" rx="10"/>
+            <text x="95" y="25" class="small" style="font-size:xx-large; font-weight: bold;">Defensa</text>
+            <image href="./assets/defensa/n_defensa_ts_s.png" id="p-d-n-aux" x="95"  y="50" />
+
+            <rect width="125" height="125" x="215" y="45" class="pza-inactiva sombra" id="p-c-n-a-s" rx="10"/>
+            <text x="230" y="25" class="small" style="font-size:xx-large; font-weight: bold;">Capitan</text>
+            <image href="./assets/capitan/n_capitan_t_n.png" id="p-c-n-aux" x="220"  y="50" />
+
+            <rect width="126" height="140" x="574" y="45" class="pza-inactiva sombra" id="p-g-n-a-s" rx="10"/>
+            <text x="565" y="25" class="small" style="font-size:xx-large; font-weight: bold;">Guardian</text>
+            <image href="./assets/guardian/n_guardian_t_n.png" id="p-g-n-aux" x="580"  y="50" />
+
+            <rect width="128" height="210" x="714" y="45" class="pza-inactiva sombra" id="p-a-n-a-s" rx="10"/>
+            <text x="735" y="25" class="small" style="font-size:xx-large; font-weight: bold;">Ataque</text>
+            <image href="./assets/ataque/n_ataque_r_s.png" id="p-a-n-aux" x="720"  y="50" />
+
+            <rect width="88" height="90" x="0" y="1395" class="pza-inactiva sombra" id="p-l-b-a-s" rx="10"/>
+            <text x="2" y="1540" class="small" style="font-size:xx-large; font-weight: bold;">Lider</text>
+            <image href="./assets/lider/b_lider_t_s.png" id="p-l-b-aux" x="3"  y="1400" height="80" width="80" />
+
+            <rect width="132" height="200" x="86" y="1290" class="pza-inactiva sombra" id="p-d-b-a-s" rx="10"/>
+            <text x="95" y="1540" class="small" style="font-size:xx-large; font-weight: bold;">Defensa</text>
+            <image href="./assets/defensa/b_defensa_tn_n.png" id="p-d-b-aux" x="95"  y="1300" />
+
+            <rect width="125" height="125" x="215" y="1375" class="pza-inactiva sombra" id="p-c-b-a-s" rx="10"/>
+            <text x="230" y="1540" class="small" style="font-size:xx-large; font-weight: bold;">Capitan</text>
+            <image href="./assets/capitan/b_capitan_t_s.png" id="p-c-b-aux" x="220"  y="1390" />
+
+            <rect width="126" height="140" x="574" y="1365" class="pza-inactiva sombra" id="p-g-b-a-s" rx="10"/>
+            <text x="565" y="1540" class="small" style="font-size:xx-large; font-weight: bold;">Guardian</text>
+            <image href="./assets/guardian/b_guardian_t_n.png" id="p-g-b-aux" x="580"  y="1370" />
+
+            <rect width="128" height="210" x="714" y="1295" class="pza-inactiva sombra" id="p-a-b-a-s" rx="10"/>
+            <text x="735" y="1540" class="small" style="font-size:xx-large; font-weight: bold;">Ataque</text>
+            <image href="./assets/ataque/b_ataque_r_n.png" id="p-a-b-aux" x="720"  y="1300" />
         </svg>
     </div>
 </div>

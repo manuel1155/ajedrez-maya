@@ -5,8 +5,11 @@
       </div>
       <div class="bg-body-tertiary border rounded-3" style="height: 80vh; overflow-y: auto;">
       <!-- <div class="bg-body-tertiary border rounded-3" style="height: 80vh; overflow-y: auto;"> -->
-        <!-- <app-tablero (casillaSeleccionada)="getDataClicTablero($event)"></app-tablero> -->
-        <app-tablero #tablero (casillaSeleccionada)="getDataClicTablero($event)" (moverPza)="getNewPosicion($event)" [casillasBloqueadas]="casillasBloqueadas" [posicionesPiezas]="posicionesPiezas"></app-tablero>
+        <!-- <app-tablero (casillaSeleccionada)="getDataClicTablero($event)"></app-tablero>
+        <app-tablero #tablero (casillaSeleccionada)="getDataClicTablero($event)" (moverPza)="getNewPosicion($event)"  [piezasJuego]="piezasJuego"></app-tablero>
+        
+        -->
+        <app-tablero #tablero (casillaSeleccionada)="getDataClicTablero($event)" [casillasBloqueadas]="casillasBloqueadas" (moverPza)="getNewPosicion($event)" [piezasJuego]="piezasJuego" [jugadores]="jugadores"></app-tablero>
       </div>
     </div>
   </div>
